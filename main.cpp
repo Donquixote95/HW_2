@@ -1,28 +1,18 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "Electronics.h"
+#include <iostream>
+#include <string>
+#include "WordCounter.h"
+using namespace std;
 
 int main() {
-  Electronics* e1 = new TV(600);
-  Electronics* e2 = new Cellphone(160);
-  Laptop * e3 = new Laptop(330);
-
-  Computer * GPU1 = new Computer(50);
-  Computer * GPU2 = new Computer(20);
   
-  e3->AddGPU(GPU1);
-  e3->AddGPU(GPU2);
-  
-  e1->PrintSelf();
-  e2->PrintSelf();
-  e3->PrintSelf();
-  
-
-  delete e1;
-  delete e2;
-  delete e3;
-  delete GPU1;
-  delete GPU2;
-
-  return EXIT_SUCCESS;
+  	string text = "Mrs. Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neighbors.";
+	WordCounter counter;
+	counter.InputText(text);
+	
+	cout << "Word Count: " << counter.GetWordCount() << endl;
+	cout << "Character Count: " << counter.GetCharacterCount() << endl;
+	cout << "Number of Unique Words: " << counter.GetUniqueWordCount() << endl;
+ 	cout << "The word and appears " << counter.GetWordCount_OneWord("and") << " times" << endl;
+ 	
+ 	return 0;
 }
